@@ -39,7 +39,7 @@ func main() {
 }
 
 func sent(ip string, contextS string) {
-
+	contextS = "HEARTB%" + contextS
 	contextS = strings.TrimSpace(contextS)
 	conn, err := net.Dial("tcp", ip)
 	if err != nil {

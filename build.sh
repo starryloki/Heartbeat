@@ -1,6 +1,7 @@
 mkdir -p bin
 n="Heartbeat"
 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o bin/${n}_Linux_amd64
+CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -o bin/${n}_Linux_arm64
 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o bin/${n}_Darwin_amd64
 CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -o bin/${n}_Darwin_arm64
 CGO_ENABLED=0 GOOS=freebsd GOARCH=amd64 go build -o bin/${n}_FreeBSD_amd64
