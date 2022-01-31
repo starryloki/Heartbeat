@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"log"
 	"net"
+	"time"
 )
 
 func StartServer(port string) {
@@ -17,6 +18,10 @@ func StartServer(port string) {
 		conn, err := listen.Accept()
 		if err != nil {
 			log.Printf("accept failed, err:%v\n", err)
+			continue
+		}
+		err1 := conn.SetReadDeadline(time.Now().Add(2 * time.Second))
+		if err1 != nil {
 			continue
 		}
 		go process(conn)
